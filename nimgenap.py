@@ -18,27 +18,47 @@ beli_barang_lain = input("Beli barang lain?\nTekan (iya/tidak):")
 if beli_barang_lain == "iya":
     beli2 =input("Pilih barang :")
     jumlah2 =int(input("jumlah pesan :"))
+    bayar2 = jumlah1*barang[beli] + jumlah2*barang[beli2]
+    jumlah3 = jumlah1 + jumlah2
 elif beli_barang_lain == "tidak":
     print("")
+    bayar = jumlah1*barang[beli]
+    jumlah4 = jumlah1
 else:
     print("error")
-bayar = jumlah1*barang[beli] + jumlah2*barang[beli2]
-jumlah = jumlah1 + jumlah2
+
 
 print("=====================Detail Pembayaran=================")
 print("Beli barang lain?:" , beli_barang_lain)
 if beli_barang_lain == "iya":
     print("menu yang dipesan :", beli + " dan " + beli2)
+    print("jumlah yang dipesan:",jumlah3)
+    print("Total Biaya :",bayar2)
+    if bayar2 > 250000:
+        diskon =bayar2*25/100
+        total =bayar2 - diskon
+        print("Anda mendapatkan diskon 25%")
+    else :
+        total = bayar2
 elif beli_barang_lain == "tidak":
     print("menu yang dipesan :",beli)
+    print("jumlah yang dipesan:",jumlah4)
+    print("Total Biaya :",bayar)
+    if bayar > 250000:
+        diskon =bayar*25/100
+        total =bayar - diskon
+        print("Anda mendapatkan diskon 25%")
+    else :
+        total = bayar
 else:
     print("menu yang dipesan :",beli)
-print("jumlah yang dipesan:",jumlah)
-print("Total Biaya :",bayar)
-if bayar > 250000:
-    diskon =bayar*25/100
-    total =bayar - diskon
-    print("Anda mendapatkan diskon 25%")
-else :
-    total = bayar
+    print("jumlah yang dipesan:",jumlah4)
+    print("Total Biaya :",bayar)
+    if bayar > 250000:
+        diskon =bayar*25/100
+        total =bayar - diskon
+        print("Anda mendapatkan diskon 25%")
+    else :
+        total = bayar
+
 print("Total yang harus dibayar :",total)
